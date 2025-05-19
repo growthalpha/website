@@ -9,11 +9,13 @@ import SectionHeading from '@/components/SectionHeading';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import WaitlistForm from '@/components/WaitlistForm';
+import stableMoneyLogo from '@/assets/images/stablemoney_logo_optimized.png';
+import khatabookLogo from '@/assets/images/khatabook_logo_optimized.png';
 
 // Partner logos (you'll need to add these to your public folder)
 const partnerLogos = [
-  { name: "Khatabook", logo: "/khatabook_logo_optimized.png" },
-  { name: "StableMoney", logo: "/stablemoney_logo_optimized.png" },
+  { name: "Khatabook", logo: khatabookLogo },
+  { name: "StableMoney", logo: stableMoneyLogo },
 ];
 
 const Index = () => {
