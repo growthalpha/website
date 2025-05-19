@@ -38,7 +38,7 @@ const Navbar = ({ transparent = true }: NavbarProps) => {
   const navItems = [
     { name: "How It Works", section: "how-it-works" },
     { name: "Who It's For", section: "who-its-for" },
-    { name: "Team", section: "team" },
+    // { name: "Team", section: "team" },
   ];
 
   return (

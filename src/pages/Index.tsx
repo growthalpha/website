@@ -7,35 +7,17 @@ import ComparisonItem from '@/components/ComparisonItem';
 import TeamMemberCard from '@/components/TeamMemberCard';
 import SectionHeading from '@/components/SectionHeading';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { ArrowRight } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import WaitlistForm from '@/components/WaitlistForm';
 
 // Partner logos (you'll need to add these to your public folder)
 const partnerLogos = [
-  { name: "Khatabook", logo: "/partner1.png" },
-  { name: "StableMoney", logo: "/partner2.png" },
+  { name: "Khatabook", logo: "/khatabook_logo_optimized.png" },
+  { name: "StableMoney", logo: "/stablemoney_logo_optimized.png" },
 ];
 
 const Index = () => {
-  const { toast } = useToast();
   const [networkEnabled, setNetworkEnabled] = useState(true);
-
-  const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    toast({
-      title: "Request received!",
-      description: "We'll be in touch soon.",
-    });
-
-    // Clear form
-    const form = e.target as HTMLFormElement;
-    form.reset();
-  };
-
-  // Toggle network background
-  // To enable/disable the network, toggle the networkEnabled state variable
-  // e.g. setNetworkEnabled(!networkEnabled)
 
   // Handle element animations on scroll
   useEffect(() => {
@@ -74,8 +56,8 @@ const Index = () => {
               </div>
             </h1>
             
-            <p className="text-xl md:text-2xl text-neon-text/80 mb-10 max-w-3xl mx-auto">
-              GrowthAlpha autonomously analyzes user data, generates hypotheses, creates microsegments, and executes targeted interventions — helping growth teams 10× their LTV.
+            <p className="text-2xl md:text-3xl text-neon-text/80 mb-10 max-w-3xl mx-auto">
+            10× faster growth with AI that skips the guesswork and gets it done
             </p>
             
             <div className="flex flex-col md:flex-row gap-4 justify-center">
@@ -97,7 +79,7 @@ const Index = () => {
       </section>
       
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 md:py-40 bg-navy relative">
+      <section id="how-it-works" className="pt-20 md:pt-40 bg-navy relative">
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading 
             title="How It Works"
@@ -184,7 +166,7 @@ const Index = () => {
       </section>
       
       {/* Who It's For Section */}
-      <section id="who-its-for" className="py-20 md:py-32 bg-navy relative">
+      <section id="who-its-for" className="pt-20 md:pt-32 bg-navy relative">
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeading 
             title="Who It's For"
@@ -252,67 +234,30 @@ const Index = () => {
       </section>
       
       {/* Design Partners Section */}
-      <section id="design-partners" className="py-20 md:py-32 bg-navy relative">
-        <div className="mt-20 bg-navy-card rounded-lg p-8 max-w-5xl mx-auto" data-animate>
+      <section id="design-partners" className="pt-20 md:pt-32 bg-navy relative">
           <div className="container mx-auto px-4 relative z-10">
             <SectionHeading 
-              title="Design Partners"
+              title="Used by forward-thinking teams"
               subtitle="We're working with leading companies to shape the future of growth"
             />
-            
-            <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto" data-animate>
-              {partnerLogos.map((partner, index) => (
-                <div key={index} className="w-60 h-24 bg-navy-card rounded-md flex items-center justify-center p-4">
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name} 
-                    className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Team Section */}
-      <section id="team" className="py-20 md:py-32 bg-navy relative">
-        <div className="container mx-auto px-4 relative z-10">
-          <SectionHeading 
-            title="Founding Team"
-            subtitle="Built by veterans from Growth, Data, and AI"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <TeamMemberCard
-              name="Alex Chen"
-              title="Founder & CEO"
-              bio="Former Head of Growth at Spotify. Led teams that scaled user acquisition and retention initiatives across 30+ markets."
-              color="indigo"
-              data-animate
-            />
-            
-            <TeamMemberCard
-              name="Sasha Patel"
-              title="CTO & Co-founder"
-              bio="AI researcher with 10+ years experience. Previously led machine learning teams at Google working on recommendation systems."
-              color="teal"
-              data-animate
-            />
-            
-            <TeamMemberCard
-              name="Jordan Lee"
-              title="CPO & Co-founder"
-              bio="Former Director of Product at Stripe. Specialized in building data-driven products that drive business growth through automation."
-              color="purple"
-              data-animate
-            />
+            <div className="bg-navy-card rounded-lg p-8 max-w-5xl mx-auto" data-animate>
+              <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto" data-animate>
+                {partnerLogos.map((partner, index) => (
+                  <div key={index} className="w-60 h-24 bg-navy-card rounded-md flex items-center justify-center p-4"> {/* Increased width and height */}
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name} 
+                      className="max-w-full max-h-full object-contain opacity-85 hover:opacity-100 transition-opacity rounded-lg"
+                    />
+                  </div>
+                ))}
+              </div>
           </div>
         </div>
       </section>
       
       {/* CTA Section */}
-      <section id="cta" className="py-20 md:py-32 bg-navy relative">
+      <section id="cta" className="pt-20 md:pt-32 pb-8 md:pb-16 bg-navy relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center" data-animate>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">Ready to Transform Your Growth?</h2>
@@ -320,21 +265,7 @@ const Index = () => {
               Join our exclusive early access program and be among the first to experience autonomous growth.
             </p>
             
-            <form onSubmit={handleEmailSubmit} className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
-              <Input 
-                type="email" 
-                placeholder="Enter your email" 
-                required 
-                className="bg-navy border-neon-blue/50 h-12 text-white"
-              />
-              <Button 
-                type="submit"
-                className="bg-neon-blue hover:bg-neon-blue/90 hover:shadow-[0_0_15px_rgba(91,129,253,0.5)] transition-all text-white font-normal px-8 py-6 text-lg group"
-              >
-                Get Early Access
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </form>
+            <WaitlistForm />
           </div>
         </div>
       </section>
