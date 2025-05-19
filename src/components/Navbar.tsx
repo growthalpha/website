@@ -37,7 +37,6 @@ const Navbar = ({ transparent = true }: NavbarProps) => {
 
   const navItems = [
     { name: "How It Works", section: "how-it-works" },
-    { name: "Why Agentic AI", section: "why-agentic" },
     { name: "Who It's For", section: "who-its-for" },
     { name: "Team", section: "team" },
   ];
@@ -54,16 +53,17 @@ const Navbar = ({ transparent = true }: NavbarProps) => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.section)}
-                className="text-neon-text hover:text-white text-lg font-medium transition-colors"
+                className="text-neon-text hover:text-white text-lg font-normal transition-colors"
               >
                 {item.name}
               </button>
             ))}
             <Button 
               onClick={() => scrollToSection('cta')}
-              className="bg-neon-blue text-white font-medium px-4 py-2 hover:shadow-[0_0_15px_rgba(91,129,253,0.5)] transition-all hover:-translate-y-1"
+              className="bg-neon-blue hover:bg-neon-blue/90 hover:shadow-[0_0_15px_rgba(91,129,253,0.5)] transition-all text-white font-normal px-4 py-2 text-sm group"
             >
               Get Early Access
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
@@ -95,9 +95,10 @@ const Navbar = ({ transparent = true }: NavbarProps) => {
             ))}
             <Button 
               onClick={() => scrollToSection('cta')}
-              className="bg-neon-blue text-white font-medium w-full justify-start"
+              className="bg-neon-blue hover:bg-neon-blue/90 hover:shadow-[0_0_15px_rgba(91,129,253,0.5)] transition-all text-white font-normal px-4 py-2 text-sm group"
             >
               Get Early Access
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>

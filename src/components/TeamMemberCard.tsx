@@ -15,7 +15,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ name, title, bio, color
         <div className={`w-16 h-16 rounded-full bg-${color}-500/50`}></div>
       </div>
       
-      <h3 className="text-xl font-bold mb-1">{name}</h3>
+      <h3 className="text-xl font-medium mb-1">{name}</h3>
       <p className={`text-${color}-400 mb-4 font-medium`}>{title}</p>
       
       <p className="text-neon-text/80 leading-relaxed text-sm">{bio}</p>

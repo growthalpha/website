@@ -61,48 +61,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ enabled }) => {
         iterations: Infinity
       });
     }
-    
-    // Create connections between some nodes
-    for (let i = 0; i < nodes.length; i++) {
-      const connections = Math.floor(Math.random() * 3) + 1; // More connections
-      
-      for (let j = 0; j < connections; j++) {
-        const target = Math.floor(Math.random() * nodes.length);
-        if (i !== target) {
-          const connection = document.createElement('div');
-          connection.className = 'connection';
-          container.appendChild(connection);
-          
-          // Position and animate the connection
-          const updateConnection = () => {
-            const node1Rect = nodes[i].getBoundingClientRect();
-            const node2Rect = nodes[target].getBoundingClientRect();
-            
-            const x1 = node1Rect.left + node1Rect.width / 2 - containerRect.left;
-            const y1 = node1Rect.top + node1Rect.height / 2 - containerRect.top;
-            const x2 = node2Rect.left + node2Rect.width / 2 - containerRect.left;
-            const y2 = node2Rect.top + node2Rect.height / 2 - containerRect.top;
-            
-            const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
-            
-            connection.style.width = `${length}px`;
-            connection.style.left = `${x1}px`;
-            connection.style.top = `${y1}px`;
-            connection.style.transform = `rotate(${angle}deg)`;
-          };
-          
-          // Initial position
-          updateConnection();
-          
-          // Update on animation frames
-          const updateInterval = setInterval(updateConnection, 100);
-          
-          // Cleanup
-          return () => clearInterval(updateInterval);
-        }
-      }
-    }
   }, [enabled]);
 
   return (
