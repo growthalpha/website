@@ -1,0 +1,135 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 142 63% 59%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --radius: 0.75rem;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-navy text-neon-text font-montserrat;
+    overflow-x: hidden;
+    background-image: linear-gradient(to right, rgba(106, 229, 140, 0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(106, 229, 140, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:translate-y-[-8px] hover:shadow-[0_0_20px_0_rgba(106,229,140,0.3)]; 
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #6AE58C 0%, #5B81FD 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #6AE58C 0%, #5B81FD 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glowing-border {
+  position: relative;
+}
+
+.glowing-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(106, 229, 140, 0.5), rgba(91, 129, 253, 0.5));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* Network Graph Animation */
+.node {
+  @apply absolute rounded-full bg-neon-green opacity-70;
+  box-shadow: 0 0 15px rgba(106, 229, 140, 0.7);
+}
+
+.node-alt {
+  @apply bg-neon-blue;
+  box-shadow: 0 0 15px rgba(91, 129, 253, 0.7);
+}
+
+.node-teal {
+  @apply bg-neon-teal;
+  box-shadow: 0 0 15px rgba(51, 224, 195, 0.7);
+}
+
+/* Node connections */
+.connection {
+  @apply absolute bg-gradient-to-r from-neon-green to-neon-blue opacity-30;
+  height: 1px;
+  transform-origin: left center;
+}
